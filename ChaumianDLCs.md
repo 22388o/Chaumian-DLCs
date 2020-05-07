@@ -22,6 +22,8 @@ These CETs have one input, spending the multisignature output from the funding t
 
 The winning party uses their key own key and oracle signature to spend the output and send it to an address they control.
 
+To learn more checkout [the DLC spec](https://github.com/discreetlogcontracts/dlcspecs)
+
 ### What is an adaptor signature based DLC
 
 An adaptor signature based DLC is similiar to the DLCs described in the section above that are simpler in requiring one less transaction and only a single view, however, mostly likely require an upgrade to the bitcoin protocol for the use of adaptor signatures.

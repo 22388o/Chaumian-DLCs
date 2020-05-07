@@ -11,9 +11,11 @@ Note: This is an adaption of the [ZeroLink Framework](https://github.com/nopara7
 
 ### What is a DLC
 
-A Discreet Log Contract (DLC), is a contract between two or more parties based on expected oracle signatures. A typical DLC consists of 2-3 transactions.
+A Discreet Log Contract (DLC), is a contract between two or more parties based on expected oracle signatures.
+A typical DLC consists of 2-3 transactions.
 
-The first step is for them to construct a Funding Transaction. This is a transaction with collateral input and a simple n-of-n multisignature output (with one key from each party)
+The first step is for them to construct a Funding Transaction.
+This is a transaction with collateral input and a simple n-of-n multisignature output (with one key from each party)
 
 Second, they create and sign Contract Execution Transactions (CETs), one for each possible event which spend the Funding Transaction.
 These CETs have one input, spending the multisignature output from the funding transaction, and one output that is locked behind a script that requires a signature from the derived from a key from the winning party combined with the oracle's signature.
@@ -62,7 +64,8 @@ Both Bobs register their signed ContractInfo, fundingKey, toLocalCETKey, and fin
 
 Sever builds the unsigned funding transaction and CETs, then gives it to Alices for signing.
 The Alices then verify that these are the expected funding transaction and CETs, then signs and sends all her signatures back to the Server.
-When all the Alices signatures arrive, the Servers combines the signatures and propagates the funding transaction on the network. Then passes the all of CET signatures to all of the alices.
+When all the Alices signatures arrive, the Servers combines the signatures and propagates the funding transaction on the network.
+Then passes the all of CET signatures to all of the alices.
 
 4. Contract Execution Phase
 
@@ -71,7 +74,8 @@ On contract maturity, the corresponding CET is broadcast and the winner uses the
 
 ### Further Notes
 
-This construct can also be used to combine many 2 party DLCs. The only change would be that resulting funding transaction would have many 2-of-2 multisig outputs that will be used for each individual 2-party DLC.
+This construct can also be used to combine many 2 party DLCs.
+The only change would be that resulting funding transaction would have many 2-of-2 multisig outputs that will be used for each individual 2-party DLC.
 
 ## Protocol Overview for Adaptor Signature DLCs
 
@@ -95,8 +99,10 @@ Bobs register their signed ContractInfo, fundingKey, and finalAddress to the Ser
 
 Sever builds the unsigned funding transaction and CETs, then gives it to Alices for signing.
 The Alices then verify that these are the expected funding transaction and CETs, then signs.
-Alice then adapts all of her CET signatures using the corresponding oracle signature point. She then sends all her signatures back to the Server.
-When all the Alices signatures arrive, the Servers combines the signatures and propagates the funding transaction on the network. Then passes all of the CET signatures to all of the alices.
+Alice then adapts all of her CET signatures using the corresponding oracle signature point.
+She then sends all her signatures back to the Server.
+When all the Alices signatures arrive, the Servers combines the signatures and propagates the funding transaction on the network.
+Then passes all of the CET signatures to all of the alices.
 
 4. Contract Execution Phase
 
